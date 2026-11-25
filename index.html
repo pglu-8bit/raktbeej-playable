@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><script src="https://www.youtube.com/game_api/v1"></script>
+<title>RaktBeej</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="style.css"></head>
+<body>
+<canvas id="c" aria-label="RaktBeej game"></canvas>
+
+<div id="ctrl" hidden>
+  <div class="pad"><button id="bL" aria-label="Move left">&#9664;</button><button id="bR" aria-label="Move right">&#9654;</button></div>
+  <div class="cluster">
+    <button id="bF" class="fury" aria-label="Fury special"><span>&#9889;</span></button>
+    <button id="bJ" aria-label="Jump">&#9650;</button>
+    <button id="bP" aria-label="Ground pound">&#9660;</button>
+    <button id="bD" aria-label="Dash">&raquo;</button>
+    <button id="bA" class="atk" aria-label="Sword attack">&#9876;</button>
+  </div>
+</div>
+
+<div id="menu" class="ov">
+  <div class="card">
+    <h1>RaktBeej</h1>
+    <div class="hi" lang="hi">रक्तबीज</div>
+    <p class="tag">Every drop of his blood is another Raktabeej. Strike him down, but catch the falling blood before it touches the ground!</p>
+    <p class="stat" id="stat"></p>
+    <div class="grid">
+      <button id="play" class="big">Play</button>
+      <button id="cont" class="big alt" hidden>Continue</button>
+      <button id="shopBtn" class="big alt">Blessings</button>
+      <button id="trophyBtn" class="big alt">Trophies</button>
+    </div>
+    <div class="row small">
+      <button id="musBtn" class="tog" aria-pressed="true">Music: On</button>
+      <button id="sfxBtn" class="tog" aria-pressed="true">Effects: On</button>
+      <button id="hapBtn" class="tog" aria-pressed="true">Vibration: On</button>
+      <button id="nmBtn" class="tog nm" aria-pressed="false">Nightmare: Off</button>
+    </div>
+    <p class="keys">Move A/D or arrows &middot; Jump W/Space (twice!) &middot; Slash J/X (chain 3 hits) &middot; Dash K/Shift &middot; Fury L/E &middot; Slam S/&darr; in air &middot; Nightmare = tougher boss, +50% karma</p>
+  </div>
+</div>
+
+<div id="shop" class="ov" hidden>
+  <div class="card">
+    <h2>Blessings</h2>
+    <p class="stat" id="karma"></p>
+    <div id="shopList" class="list"></div>
+    <div class="row"><button id="shopBack" class="big alt">Back</button></div>
+  </div>
+</div>
+
+<div id="trophies" class="ov" hidden>
+  <div class="card">
+    <h2>Trophies</h2>
+    <p class="stat" id="trophyStat"></p>
+    <div id="trophyList" class="list"></div>
+    <div class="row"><button id="trophyBack" class="big alt">Back</button></div>
+  </div>
+</div>
+
+<div id="over" class="ov" hidden>
+  <div class="card">
+    <h2 id="overT"></h2>
+    <div id="stars" class="stars" aria-hidden="true"></div>
+    <p id="overP"></p>
+    <div class="row">
+      <button id="overA" class="big"></button>
+      <button id="overS" class="big alt">Blessings</button>
+      <button id="overM" class="big alt">Menu</button>
+    </div>
+  </div>
+</div>
+
+<div id="splash" role="status" aria-live="polite"><div class="spin" aria-hidden="true"></div><div>Loading&hellip;</div></div>
+<script src="audio.js"></script>
+<script src="game.js"></script>
+</body></html>
